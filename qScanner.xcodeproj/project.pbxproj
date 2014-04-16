@@ -60,6 +60,7 @@
 		48B8EEDF18EBEC2D0052B7D6 /* Submit.png in Resources */ = {isa = PBXBuildFile; fileRef = 48B8EEDE18EBEC2D0052B7D6 /* Submit.png */; };
 		48B8EEE118EBECC90052B7D6 /* TextBck.png in Resources */ = {isa = PBXBuildFile; fileRef = 48B8EEE018EBECC90052B7D6 /* TextBck.png */; };
 		48C2BCAB18E931EE002973DE /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 48C2BCA918E931EE002973DE /* README.txt */; };
+		48C543BC18FE83080074D778 /* Logo_White.png in Resources */ = {isa = PBXBuildFile; fileRef = 48C543BB18FE83080074D778 /* Logo_White.png */; };
 		48FFF49718DFEA74001938FC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FFF48D18DFEA74001938FC /* AppDelegate.m */; };
 		48FFF49918DFEA74001938FC /* EnterDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FFF49118DFEA74001938FC /* EnterDetails.m */; };
 		48FFF49B18DFEA74001938FC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FFF49518DFEA74001938FC /* ViewController.m */; };
@@ -148,6 +149,7 @@
 		48C2BCA718E931EE002973DE /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
 		48C2BCA818E931EE002973DE /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
 		48C2BCA918E931EE002973DE /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		48C543BB18FE83080074D778 /* Logo_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo_White.png; sourceTree = "<group>"; };
 		48FFF48C18DFEA74001938FC /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = AppDelegate/AppDelegate.h; sourceTree = "<group>"; };
 		48FFF48D18DFEA74001938FC /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		48FFF49018DFEA74001938FC /* EnterDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnterDetails.h; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 		48FFF4A018DFEB44001938FC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				48C543BB18FE83080074D778 /* Logo_White.png */,
 				48B8EEE018EBECC90052B7D6 /* TextBck.png */,
 				48B8EEDE18EBEC2D0052B7D6 /* Submit.png */,
 				48B8EEDC18EBEB9E0052B7D6 /* Detailsbck.jpg */,
@@ -498,6 +501,7 @@
 			files = (
 				48B8EEDD18EBEB9E0052B7D6 /* Detailsbck.jpg in Resources */,
 				48A2449B18EBD93800A685F3 /* TwitterBtn.png in Resources */,
+				48C543BC18FE83080074D778 /* Logo_White.png in Resources */,
 				48A2449718EBD87800A685F3 /* FbBtn.png in Resources */,
 				488A3E8018E0320500559DE0 /* ArrowDown.png in Resources */,
 				48B8EED718EBE6160052B7D6 /* HomeBck.jpg in Resources */,

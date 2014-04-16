@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C566319D-40CB-483F-AC15-FD2AA117182F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>qScanner</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>61940C00-7473-4516-99FD-5D89B3C94973</key>
+		<string>https://github.com/qwerty-uiop/qScanner.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>qScanner.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>61940C00-7473-4516-99FD-5D89B3C94973</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/qwerty-uiop/qScanner.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>61940C00-7473-4516-99FD-5D89B3C94973</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>61940C00-7473-4516-99FD-5D89B3C94973</string>
+			<key>IDESourceControlWCCName</key>
+			<string>qScanner</string>
+		</dict>
+	</array>
+</dict>
+</plist>
