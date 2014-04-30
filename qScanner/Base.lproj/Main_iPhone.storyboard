@@ -189,7 +189,7 @@
                                         <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tXB-CL-OZh">
-                                        <rect key="frame" x="20" y="329.99999930277284" width="280" height="30"/>
+                                        <rect key="frame" x="20" y="330" width="280" height="29.999999860084511"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <state key="normal" image="Submit.png">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
