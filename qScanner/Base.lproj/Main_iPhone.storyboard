@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
     <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
@@ -21,12 +22,18 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" id="R2Q-Tn-AJI">
-                                        <rect key="frame" x="20" y="132" width="280" height="321"/>
+                                        <rect key="frame" x="20" y="151" width="280" height="280"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Qwertyuiop_Transparent_White.png" id="gZC-ky-z08">
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="280"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </imageView>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="g6C-43-boh">
-                                        <rect key="frame" x="20" y="477" width="280" height="39"/>
+                                        <rect key="frame" x="20" y="467" width="280" height="39"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" image="StartScan.png">
@@ -100,7 +107,7 @@
                                             <action selector="ShareViaTwitterFn:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vKC-dW-yXH"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo_White.png" id="w7S-fG-5dl">
+                                    <imageView userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Qwertyuiop_Transparent_White.png" id="w7S-fG-5dl">
                                         <rect key="frame" x="114" y="351" width="100" height="63"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -182,7 +189,7 @@
                                         <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tXB-CL-OZh">
-                                        <rect key="frame" x="20" y="329.99998927116428" width="280" height="30"/>
+                                        <rect key="frame" x="20" y="329.99999930277284" width="280" height="30"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <state key="normal" image="Submit.png">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -276,7 +283,7 @@
         <image name="EmailBtn.png" width="244" height="244"/>
         <image name="FbBtn.png" width="244" height="244"/>
         <image name="HomeBck.jpg" width="640" height="1136"/>
-        <image name="Logo_White.png" width="600" height="483"/>
+        <image name="Qwertyuiop_Transparent_White.png" width="600" height="600"/>
         <image name="SmsBtns.png" width="244" height="244"/>
         <image name="StartScan.png" width="601" height="64"/>
         <image name="Submit.png" width="601" height="68"/>

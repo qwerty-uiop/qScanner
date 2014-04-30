@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="rJE-K5-h7b">
     <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
@@ -26,7 +27,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="03u-KU-IVn">
-                                        <rect key="frame" x="20" y="878" width="728" height="88"/>
+                                        <rect key="frame" x="20" y="878" width="728" height="90"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" image="StartScan.png">
@@ -100,7 +101,7 @@
                                             <action selector="ShareViaTwitterFn:" destination="rJE-K5-h7b" eventType="touchUpInside" id="mf5-0z-Xny"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" alpha="0.85000002384185791" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo_White.png" id="lTh-yz-2L7">
+                                    <imageView userInteractionEnabled="NO" alpha="0.85000002384185791" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Qwertyuiop_Transparent_White.png" id="lTh-yz-2L7">
                                         <rect key="frame" x="290" y="602" width="243" height="139"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -272,7 +273,7 @@
         <image name="EmailBtn.png" width="244" height="244"/>
         <image name="FbBtn.png" width="244" height="244"/>
         <image name="HomeBck.jpg" width="640" height="1136"/>
-        <image name="Logo_White.png" width="600" height="483"/>
+        <image name="Qwertyuiop_Transparent_White.png" width="600" height="600"/>
         <image name="SmsBtns.png" width="244" height="244"/>
         <image name="StartScan.png" width="601" height="64"/>
         <image name="Submit.png" width="601" height="68"/>

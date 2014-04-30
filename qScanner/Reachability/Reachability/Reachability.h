@@ -44,7 +44,24 @@
  Copyright (C) 2014 Apple Inc. All Rights Reserved.
  
  */
+/* Implement
 
+-(BOOL)IsNetworkAvailable
+{
+    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
+    if (networkStatus == NotReachable) {
+        return false;
+    } else {
+        
+        return true;
+        
+        
+    }
+}
+
+
+*/
 #import <Foundation/Foundation.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 #import <netinet/in.h>

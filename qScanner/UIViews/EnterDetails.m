@@ -9,6 +9,7 @@
 #import "EnterDetails.h"
 #import <Parse/Parse.h>
 #import "UIView+bounce.h"
+#import "Reachability.h"
 
 @interface EnterDetails ()
 
@@ -56,7 +57,10 @@ int tableF;
     {
         _submitBtn.hidden=YES;
     }
-    
+    if(![self IsNetworkAvailable])
+    {
+        _submitBtn.hidden=YES;
+    }
     
    [_tableView removeFromSuperview];
 }
@@ -176,7 +180,10 @@ int tableF;
 }
 -(void) keyboardWillShow
 {
+    if([self IsNetworkAvailable])
+    {
     _submitBtn.hidden=NO;
+    }
 }
 - (IBAction)SelectCategoryFn:(id)sender {
     tableF=1;
@@ -193,5 +200,19 @@ int tableF;
     [_tableView reloadData];
     [self.view addSubview:_tableView];
     [self.view presentSubviewWithBounce:[self tableView]];
+}
+
+-(BOOL)IsNetworkAvailable
+{
+    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
+    if (networkStatus == NotReachable) {
+        return false;
+    } else {
+        
+        return true;
+        
+        
+    }
 }
 @end

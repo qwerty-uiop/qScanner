@@ -12,20 +12,17 @@
 #import <MessageUI/MessageUI.h>
 #import <Social/Social.h>
 #import "GADBannerView.h"
+#import "ZBarSDK.h"
 
-@interface ViewController : UIViewController<AVCaptureMetadataOutputObjectsDelegate,UIAlertViewDelegate,MFMessageComposeViewControllerDelegate,MFMailComposeViewControllerDelegate>
+@interface ViewController : UIViewController<UIAlertViewDelegate,MFMessageComposeViewControllerDelegate,MFMailComposeViewControllerDelegate,ZBarReaderViewDelegate>
 {
     GADBannerView *bannerView_;
+    ZBarReaderView *zView;
 }
 
 @property (strong, nonatomic) IBOutlet UIButton *startScanBtn;
-@property(strong,retain)AVCaptureSession* session;
-@property(strong,retain)AVCaptureDevice* device;
 - (IBAction)StartScanFn:(id)sender;
 
-@property(strong,retain)AVCaptureDeviceInput* input;
-
-@property(strong,retain)AVCaptureMetadataOutput* output;
 @property (strong, nonatomic) IBOutlet UIView *previewView;
 
 - (IBAction)AboutUsFn:(id)sender;
@@ -35,8 +32,6 @@
 - (IBAction)ShareViaFbFn:(id)sender;
 - (IBAction)ShareViaTwitterFn:(id)sender;
 
-@property(strong,retain)AVCaptureVideoPreviewLayer* prevLayer;
-@property(strong,nonatomic)UIImageView* boarderFrame;
 @property (strong, nonatomic) IBOutlet UIButton *aboutUsBtn;
-@property(strong,nonatomic)UIImageView* boarderLine;
+@property (strong, nonatomic) ZBarReaderView *zView;
 @end

@@ -9,173 +9,122 @@
 #import "ViewController.h"
 #import "EnterDetails.h"
 #import "Reachability.h"
+
 @interface ViewController ()
 @end
 
 @implementation ViewController
-
+@synthesize zView;
+bool isNotScanning;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    [self InitializeBannerView];
-    _boarderFrame=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Boarder"]];
-      _boarderLine=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"BoarderLine"]];
-   
-    
-//    [self startSessionWithDelegate:NO];
-//    [_session startRunning];
-    
-    
-    
-//    
-//    ad = [[RevMobAds session] bannerView];
-//    ad.delegate = self;
-//    [ad loadAd];
 }
 
 
-//- (void)revmobAdDidReceive {
-//    [self.view addSubview:ad];
-//}
-//
-//- (void)revmobAdDidFailWithError:(NSError *)error
-//{
-//    
-//}
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [_startScanBtn setImage:[UIImage imageNamed:@"Scanning"] forState:UIControlStateNormal];
-    [self startSessionWithDelegate:YES];
-    [_boarderFrame removeFromSuperview];
-    [_boarderLine removeFromSuperview];
+
     
     CGRect thFrm;
     thFrm = [self.AboutUsView frame];
     thFrm.origin.y = self.view.frame.size.height-30;
     [_AboutUsView setFrame:thFrm];
 }
--(void)startSessionWithDelegate:(BOOL)isDelegate
+
+-(void)viewDidAppear:(BOOL)animated
 {
-    _session = [[AVCaptureSession alloc] init];
-    _device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    NSError *error = nil;
+    [self InitializeScanner];
     
-    _input = [AVCaptureDeviceInput deviceInputWithDevice:_device error:&error];
-    if (_input) {
-        [_session addInput:_input];
-    } else {
-        NSLog(@"Error: %@", error);
-    }
     
-    _output = [[AVCaptureMetadataOutput alloc] init];
-    
-    [_session addOutput:_output];
-    
-    _output.metadataObjectTypes = [_output availableMetadataObjectTypes];
-    
-    _prevLayer = [AVCaptureVideoPreviewLayer layerWithSession:_session];
-    _prevLayer.frame = self.previewView.bounds;
-    _prevLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
-    [self.previewView.layer addSublayer:_prevLayer];
-    
-    if(isDelegate)
+    if([self IsNetworkAvailable])
     {
-    [_output setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
+        [self InitializeBannerView];
+    }
+    else
+    {
+        [self setCustomAd];
+    }
+}
+-(void)InitializeScanner
+{
+
+  zView = [ZBarReaderView new];
+    
+    
+    zView.readerDelegate = self;
+    zView.tracksSymbols = YES;
+    zView.frame = CGRectMake(0, 0, _previewView.frame.size.width,CGRectGetHeight(_previewView.frame));
+    zView.torchMode = 0;
+    
+    ZBarImageScanner *scanner = zView.scanner;
+    [scanner setSymbology: ZBAR_I25
+                   config: ZBAR_CFG_ENABLE
+                       to: 0];
+    
+    
+//    [self relocateReaderPopover:[self interfaceOrientation]];
+    
+    [zView start];
+    isNotScanning=FALSE;
+    [_previewView addSubview: zView];
+    
+}
+
+
+
+- (void) readerView: (ZBarReaderView*) readerView
+     didReadSymbols: (ZBarSymbolSet*) symbols
+          fromImage: (UIImage*) image
+{
+    NSLog(@"didReadSymbols - Sucessfull");
+    
+    ZBarSymbol *symbol = nil;
+    NSString *hiddenData;
+    for(symbol in symbols)
+    {
+        hiddenData=[NSString stringWithString:symbol.data];
     
     }
     
+    NSLog(@"SYMBOL : %@",hiddenData);
     
-    
-    [_session startRunning];
-}
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection
-{
-    CGRect highlightViewRect = CGRectZero;
-    AVMetadataMachineReadableCodeObject *barCodeObject;
-    NSString *detectionString = nil;
-    NSArray *barCodeTypes = @[AVMetadataObjectTypeUPCECode, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode39Mod43Code,
-                              AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeCode128Code,
-                              AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeQRCode, AVMetadataObjectTypeAztecCode];
-    
-    for (AVMetadataObject *metadata in metadataObjects) {
+    if (hiddenData != nil)
+    {
         
-        
-        
-        
-        for (NSString *type in barCodeTypes) {
-            if ([metadata.type isEqualToString:type])
-            {
-                barCodeObject = (AVMetadataMachineReadableCodeObject *)[_prevLayer transformedMetadataObjectForMetadataObject:(AVMetadataMachineReadableCodeObject *)metadata];
-                highlightViewRect = barCodeObject.bounds;
-                detectionString = [(AVMetadataMachineReadableCodeObject *)metadata stringValue];
-                break;
-            }
-        }
-        
-        if (detectionString != nil)
+        [zView stop];
+        isNotScanning=TRUE;
+        if([self IsNetworkAvailable])
         {
-
-//            _label.text = detectionString;
-//            _prevLayer.frame = highlightViewRect;
-            
-             [_output setMetadataObjectsDelegate:nil queue:dispatch_get_main_queue()];
-//            [_startScanBtn setTitle:@"Rescan" forState:UIControlStateNormal];
-             [_startScanBtn setImage:[UIImage imageNamed:@"StartScan"] forState:UIControlStateNormal];
-             [_session stopRunning];
-            if(highlightViewRect.size.height<10||highlightViewRect.size.width<10)
-            {
-                _boarderLine.frame=highlightViewRect;
-                [self.previewView addSubview:_boarderLine];
-            }
-            else
-            {
-           
-            _boarderFrame.frame=highlightViewRect;
-            [self.previewView addSubview:_boarderFrame];
-            }
-            NSLog(@"%@",NSStringFromCGRect(highlightViewRect));
-            
-            if([self IsNetworkAvailable])
-            {
             
             
             PFQuery *query = [PFQuery queryWithClassName:@"ProductDetailsTable"];
-            [query whereKey:@"product_code" equalTo:detectionString];
+            [query whereKey:@"product_code" equalTo:hiddenData];
             [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
                 if (object) {
                     // The find succeeded.
-//                    NSLog(@"Successfully retrieved %d scores.", objects.count);
+                    //                    NSLog(@"Successfully retrieved %d scores.", objects.count);
                     
                     EnterDetails *controller = (EnterDetails *)[self.storyboard instantiateViewControllerWithIdentifier:@"EnterDetailsID"];
-                    controller.pCode=[NSString stringWithFormat:@"%@",detectionString];
+                    controller.pCode=[NSString stringWithFormat:@"%@",hiddenData];
                     
+                    controller.pNamep=[object objectForKey:@"product_name"];
+                    controller.pPricep=[object objectForKey:@"product_price"];
+                    controller.pAmountp=[object objectForKey:@"product_amount"];
+                    controller.pShopp=[object objectForKey:@"product_shop"];
+                    controller.pCategoryp=[object objectForKey:@"product_category"];
+                    controller.pCurrencyp=[object objectForKey:@"product_currency"];
+                    controller.pIDp=object.objectId;
                     
-              
-                        
-                        
-                        controller.pNamep=[object objectForKey:@"product_name"];
-                        controller.pPricep=[object objectForKey:@"product_price"];
-                        controller.pAmountp=[object objectForKey:@"product_amount"];
-                        controller.pShopp=[object objectForKey:@"product_shop"];
-                        controller.pCategoryp=[object objectForKey:@"product_category"];
-                        controller.pCurrencyp=[object objectForKey:@"product_currency"];
-                        controller.pIDp=object.objectId;
-                        
-                        [self presentViewController:controller animated:YES completion:NULL];
-                
+                    [self presentViewController:controller animated:YES completion:NULL];
+                    
                     
                 } else {
                     EnterDetails *controller = (EnterDetails *)[self.storyboard instantiateViewControllerWithIdentifier:@"EnterDetailsID"];
-                    controller.pCode=[NSString stringWithFormat:@"%@",detectionString];
-                     [self presentViewController:controller animated:YES completion:NULL];
+                    controller.pCode=[NSString stringWithFormat:@"%@",hiddenData];
+                    [self presentViewController:controller animated:YES completion:NULL];
                     // Log details of the failure
                     NSLog(@"Error: %@ %@", error, [error userInfo]);
                 }
@@ -184,45 +133,57 @@
             
             
         }
-            else
-            {
-                EnterDetails *controller = (EnterDetails *)[self.storyboard instantiateViewControllerWithIdentifier:@"EnterDetailsID"];
-                controller.pCode=[NSString stringWithFormat:@"%@",detectionString];
-                [self presentViewController:controller animated:YES completion:NULL];
-                
-                NSLog(@"No network" );
-            }
+        else
+        {
+            EnterDetails *controller = (EnterDetails *)[self.storyboard instantiateViewControllerWithIdentifier:@"EnterDetailsID"];
+            controller.pCode=[NSString stringWithFormat:@"%@",hiddenData];
+            [self presentViewController:controller animated:YES completion:NULL];
             
-            
+            NSLog(@"No network" );
         }
-       
-//        else
-//            _label.text = @"(none)";
+        
+        
     }
-    
+
     
 }
+
+
+-(void)setCustomAd
+{
+    UIImageView* adView=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetMaxX(self.view.frame), 50)];
+    adView.image=[UIImage imageNamed:k_DeviceTypeIsIpad?@"AdiPad.jpg":@"Ad.jpg"];
+    [self.view addSubview:adView];
+}
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
 - (IBAction)StartScanFn:(id)sender {
     
    
-   
+  
     
-    if(!_session.isRunning)
+    if(isNotScanning)
     {
         [_startScanBtn setImage:[UIImage imageNamed:@"Scanning"] forState:UIControlStateNormal];
-        [self startSessionWithDelegate:YES];
-//        [_session startRunning];
-        [_boarderFrame removeFromSuperview];
-         [_boarderLine removeFromSuperview];
+        [zView start];
+        isNotScanning=false;
+
     }
     else
     {
          [_startScanBtn setImage:[UIImage imageNamed:@"StartScan"] forState:UIControlStateNormal];
-        [_session stopRunning];
-//        [self startSessionWithDelegate:NO];
+        [zView stop];
+        isNotScanning=TRUE;
     }
     
 }
+
+
 - (IBAction)AboutUsFn:(id)sender {
     
     [UIView animateWithDuration:0.3
