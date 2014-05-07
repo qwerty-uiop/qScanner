@@ -175,20 +175,31 @@ int tableF;
     }
 }
 - (IBAction)SelectCategoryFn:(id)sender {
+    
+    [self.view endEditing:YES];
+    
+    
     tableF=1;
     tableData = [NSArray arrayWithObjects:@"Home Appliance", @"Food & Beverages", @"Automobile", @"Electronics", @"Excersice", @"Clothes", @"Toys",@"Vegetables",@"Utility",@"Entertainment",@"Office",@"Sanitary",@"People",@"Cosmetics",@"Books",@"Places",@"VCards",@"Address",@"Websites",@"Phone Numbers",@"Misc",@"Others", nil];
     [_tableView reloadData];
     [self.view addSubview:_tableView];
     [self.view presentSubviewWithBounce:[self tableView]];
     
+    [self keyboardWillShow];
 }
 
 - (IBAction)SelectCurrencyFn:(id)sender {
+    
+    [self.view endEditing:YES];
+    
+    
     tableF=2;
     tableData = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Countries" ofType:@"plist"]];
     [_tableView reloadData];
     [self.view addSubview:_tableView];
     [self.view presentSubviewWithBounce:[self tableView]];
+    
+    [self keyboardWillShow];
 }
 
 -(BOOL)IsNetworkAvailable

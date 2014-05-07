@@ -66,6 +66,8 @@
 		48B8EEDF18EBEC2D0052B7D6 /* Submit.png in Resources */ = {isa = PBXBuildFile; fileRef = 48B8EEDE18EBEC2D0052B7D6 /* Submit.png */; };
 		48B8EEE118EBECC90052B7D6 /* TextBck.png in Resources */ = {isa = PBXBuildFile; fileRef = 48B8EEE018EBECC90052B7D6 /* TextBck.png */; };
 		48C2BCAB18E931EE002973DE /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 48C2BCA918E931EE002973DE /* README.txt */; };
+		48F724281919ECB000506BDC /* detect.wav in Resources */ = {isa = PBXBuildFile; fileRef = 48F724271919ECB000506BDC /* detect.wav */; };
+		48F7242A1919F10100506BDC /* QWERTYUIOP.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 48F724291919F10100506BDC /* QWERTYUIOP.mp3 */; };
 		48FFF49718DFEA74001938FC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FFF48D18DFEA74001938FC /* AppDelegate.m */; };
 		48FFF49918DFEA74001938FC /* EnterDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FFF49118DFEA74001938FC /* EnterDetails.m */; };
 		48FFF49B18DFEA74001938FC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FFF49518DFEA74001938FC /* ViewController.m */; };
@@ -178,6 +180,8 @@
 		48C2BCA718E931EE002973DE /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
 		48C2BCA818E931EE002973DE /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
 		48C2BCA918E931EE002973DE /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		48F724271919ECB000506BDC /* detect.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = detect.wav; sourceTree = "<group>"; };
+		48F724291919F10100506BDC /* QWERTYUIOP.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = QWERTYUIOP.mp3; sourceTree = "<group>"; };
 		48FFF48C18DFEA74001938FC /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = AppDelegate/AppDelegate.h; sourceTree = "<group>"; };
 		48FFF48D18DFEA74001938FC /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		48FFF49018DFEA74001938FC /* EnterDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnterDetails.h; sourceTree = "<group>"; };
@@ -490,6 +494,8 @@
 		48FFF4A018DFEB44001938FC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				48F724291919F10100506BDC /* QWERTYUIOP.mp3 */,
+				48F724271919ECB000506BDC /* detect.wav */,
 				4897E3821910D49F00F64EFD /* AdiPad.jpg */,
 				4897E3831910D49F00F64EFD /* Ad.jpg */,
 				48B8EEE018EBECC90052B7D6 /* TextBck.png */,
@@ -594,6 +600,7 @@
 				48B8EEDD18EBEB9E0052B7D6 /* Detailsbck.jpg in Resources */,
 				48A2449B18EBD93800A685F3 /* TwitterBtn.png in Resources */,
 				48A2449718EBD87800A685F3 /* FbBtn.png in Resources */,
+				48F7242A1919F10100506BDC /* QWERTYUIOP.mp3 in Resources */,
 				48B8EED718EBE6160052B7D6 /* HomeBck.jpg in Resources */,
 				488A3E6218E0152900559DE0 /* Countries.plist in Resources */,
 				4871F4B118DD63160018DEBE /* Main_iPad.storyboard in Resources */,
@@ -603,6 +610,7 @@
 				4871DEA518FFE119003D8785 /* Qwertyuiop_Transparent_White.png in Resources */,
 				4897E3841910D49F00F64EFD /* AdiPad.jpg in Resources */,
 				48B8EEDF18EBEC2D0052B7D6 /* Submit.png in Resources */,
+				48F724281919ECB000506BDC /* detect.wav in Resources */,
 				4871F4B618DD63160018DEBE /* Images.xcassets in Resources */,
 				48C2BCAB18E931EE002973DE /* README.txt in Resources */,
 				4897E3811910D1B700F64EFD /* zbar-samples.png in Resources */,

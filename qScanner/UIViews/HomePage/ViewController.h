@@ -13,11 +13,14 @@
 #import <Social/Social.h>
 #import "GADBannerView.h"
 #import "ZBarSDK.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface ViewController : UIViewController<UIAlertViewDelegate,MFMessageComposeViewControllerDelegate,MFMailComposeViewControllerDelegate,ZBarReaderViewDelegate>
 {
     GADBannerView *bannerView_;
     ZBarReaderView *zView;
+    SystemSoundID soundClick;
+    SystemSoundID qwSoundObj;
 }
 
 @property (strong, nonatomic) IBOutlet UIButton *startScanBtn;

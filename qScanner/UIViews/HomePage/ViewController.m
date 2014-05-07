@@ -19,6 +19,13 @@ bool isNotScanning;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //find URL to audio file
+    NSURL *clickSound   = [[NSBundle mainBundle] URLForResource: @"detect" withExtension: @"wav"];
+    NSURL *qwSound   = [[NSBundle mainBundle] URLForResource: @"QWERTYUIOP" withExtension: @"mp3"];
+    //initialize SystemSounID variable with file URL
+    AudioServicesCreateSystemSoundID (CFBridgingRetain(clickSound), &soundClick);
+    AudioServicesCreateSystemSoundID (CFBridgingRetain(qwSound), &qwSoundObj);
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -74,8 +81,14 @@ bool isNotScanning;
     }
     if (hiddenData != nil)
     {
+        
+        AudioServicesPlaySystemSound(soundClick);
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+        [_startScanBtn setImage:[UIImage imageNamed:@"StartScan"] forState:UIControlStateNormal];
         [zView stop];
         isNotScanning=TRUE;
+
+        
         if([self IsNetworkAvailable])
         {
             PFQuery *query = [PFQuery queryWithClassName:@"ProductDetailsTable"];
@@ -106,6 +119,11 @@ bool isNotScanning;
             [self presentViewController:controller animated:YES completion:NULL];
         }
     }
+}
+
+- (void)viewDidUnload {
+	AudioServicesDisposeSystemSoundID(soundClick);
+    AudioServicesDisposeSystemSoundID(qwSoundObj);
 }
 -(void)setCustomAd
 {
@@ -141,6 +159,7 @@ bool isNotScanning;
                              
                          }
                          else{
+                              AudioServicesPlaySystemSound(qwSoundObj);
                              thFrm.origin.y = self.previewView.frame.origin.y;
                          }
                          [_AboutUsView setFrame:thFrm];
